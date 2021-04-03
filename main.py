@@ -13,14 +13,19 @@ sharp_img = img.filter(ImageFilter.SHARPEN)
 # converted from GRB to Black & White
 convert_img = img.convert('L')
 
-# resize image
-resize = convert_img.resize((300, 300))
-resize.save("grey2.png", 'png')
+# # resize image
+# resize = convert_img.resize((300, 300))
+# resize.save("grey2.png", 'png')
+#
+# # save results
+# filtered_img.save("blur.png", 'png')
+# sharp_img.save("sharp.png", 'png')
+# convert_img.save("grey.png", 'png')
+#
+# # show the result
+# sharp_img.show()
 
-# save results
-filtered_img.save("blur.png", 'png')
-sharp_img.save("sharp.png", 'png')
-convert_img.save("grey.png", 'png')
+box = (100, 100, 400, 400)
+region = convert_img.crop(box)
 
-#show the result
-sharp_img.show()
+region.show()
