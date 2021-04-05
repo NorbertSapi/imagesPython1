@@ -18,8 +18,13 @@ if os.path.exists(output_folder):
 else:
     os.mkdir(path)
     print(output_folder)
-# print(image_folder, output_folder)
 
 # 3. loop through Pokedex directory
 # 4. convert images to png
 # 5. save images to the new folder
+
+for file in os.listdir(image_folder):
+    img = Image.open(f'{image_folder}{file}')
+    clean_name = os.path.splitext(file)[0]
+    img.save(f'{output_folder}{clean_name}.png', 'png')
+    print("all done")
